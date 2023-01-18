@@ -1,12 +1,16 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./Components/Navbar";
 import Home from "./view/Home";
+import NodeMailer from "./view/Nodemailer";
 function App() {
   return (
-   <BrowserRouter>
-   <Routes>
-    <Route exact path ="/" element={<Home/>}></Route>
-   </Routes>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/" element={<NodeMailer />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
