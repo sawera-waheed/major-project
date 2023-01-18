@@ -8,12 +8,12 @@ import Product from "../../Components/Product/Product";
 const Home = () => {
   return (
     <Container>
-      <Grid container spacing={2} style={{marginTop:"20px"}}>
+      <Grid container spacing={2} style={{marginTop:"20px", marginBottom: "40px"}}>
         <Grid item sm={4} md={4} lg={4}>
           <h2>Products</h2>
         </Grid>
         <Grid item sm={4} md={4} lg={4}></Grid>
-        <Grid item sm={4} md={4} lg={4}>
+        <Grid item sm={4} md={4} lg={4} style={{justifyContent: "end"}}>
           <Button text="add more products" />
         </Grid>
       </Grid>

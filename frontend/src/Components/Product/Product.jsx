@@ -1,34 +1,58 @@
 import React, { useEffect } from "react";
-import {Card, Grid, CardContent } from "@mui/material";
+import { CardContent } from "@mui/material";
 import { useState } from "react";
+import { GRID, IMG, P, CARD, SPAN, BUTTON } from "./style";
 import { Container } from "@mui/system";
+import Button from "../Button";
 
 const Product = () => {
   const [products, setProduct] = useState([]);
+  const fetchData = async () => {
+    const res = await fetch("http://localhost:5000/products");
+    console.log(res);
+    const data = await res.json();
+    console.log(data);
+    setProduct(data);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("http://localhost:5000/products");
-      console.log(res);
-      const data = await res.json();
-      console.log(data);
-      setProduct(data);
-    };
     fetchData();
   }, []);
+  const deleteItem = async(e) => {
+    const id= e;
+    const res = await fetch(`http://localhost:5000/delete/${id}`, {
+      method: "DELETE",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    });
+    const data = await res.json();
+    console.log(data);
+    if(res.status===200){
+      window.alert("Delete Item");
+      fetchData();
+    }
+  };
+  const editItem = (e) => {};
   return (
     <Container>
-      <Grid conrtainer spacing={2}>
-        {products.map(product => (
-          <Card key={product.id} sx={{ maxWidth: 345 }}>
+      <GRID container spacing={2}>
+        {products.map((product) => (
+          <CARD key={product.id} sx={{ maxWidth: 345 }}>
             <CardContent>
-              <img src={product.img} alt="product display"/>
-              <h1>{product.name}</h1>
-              <p>{product.price}</p>
-              <p>{product.quantity}</p>
+              <SPAN>
+                <IMG src={product.img} />
+              </SPAN>
+              <P>{product.name}</P>
+              <P size="12px"> Price: {product.price}</P>
+              <Button function={() => editItem(product)} text="Edit"></Button>
+              <Button
+                function={() => deleteItem(product._id)}
+                text="Delete"
+              ></Button>
             </CardContent>
-          </Card>
+          </CARD>
         ))}
-      </Grid>
+      </GRID>
     </Container>
   );
 };

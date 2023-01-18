@@ -1,20 +1,21 @@
 import { Grid } from "@mui/material";
-import { Link } from "react-router-dom";
+
+import {GRID, LINK} from "./style";
 import React from "react";
 
 const Navbar = () => {
   return (
     <div>
-      <Grid container spacing={2}>
+      <GRID container spacing={2}>
         <Grid item sm={12} md={4} lg={4}>
           <h2>Major Project</h2>
         </Grid>
         <Grid item sm={12} md={4} lg={4}></Grid>
-        <Grid item sm={12} md={4} lg={4}>
-          <Link to="/">Home</Link>
-          <Link to="/nodemailer">Node Mailer</Link>
+        <Grid item sm={12} md={4} lg={4} style={{paddingTop:"36px"}}>
+          <LINK to="/" >Home</LINK>
+          <LINK to="/nodemailer">Node Mailer</LINK>
         </Grid>
-      </Grid>
+      </GRID>
     </div>
   );
 };

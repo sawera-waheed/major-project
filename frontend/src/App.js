@@ -4,6 +4,7 @@ import Home from "./view/Home";
 import NodeMailer from "./view/Nodemailer";
 function App() {
   return (
+    
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" element={<NodeMailer />}></Route>
       </Routes>
     </BrowserRouter>
+
   );
 }
 
