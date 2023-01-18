@@ -10,6 +10,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(require("./src/routes/productroutes"));
+app.use(require("./src/routes/sendmail"));
 app.use(express.json());
 app.listen(port, () => {
   console.log(`The server is running on ${port}`);
