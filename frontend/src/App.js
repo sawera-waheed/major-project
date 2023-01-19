@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./view/Home";
-import NodeMailer from "./view/Nodemailer";
+import NodeMailer from "./view/Nodemailer/index";
 function App() {
   return (
     
@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/" element={<NodeMailer />}></Route>
+        <Route exact path="/nodemailer" element={<NodeMailer />}></Route>
       </Routes>
     </BrowserRouter>
 
