@@ -15,14 +15,11 @@ const NodeMailer = () => {
       [name]: value,
     });
   };
-const click=()=>{
-  console.log("hello");
-}
+
   const postData=async(e)=>{
     e.preventDefault();
        const {name, email , subject , message}= sender;
-       console.log(sender)
-       const res = await fetch("http://localhost:5000/sendmail", {
+       const res = await fetch("/sendmail", {
         method: "POST",
         headers:{
           "Content-type":"application/json"
@@ -31,8 +28,18 @@ const click=()=>{
           name, email , subject , message
         })
        });
-       const data= res.json();
-       console.log(data);
+       const data= await res.json();
+      
+       if(res.status===200){
+        console.log("setting sender");
+        setSender({
+          name: "",
+          subject: "",
+          email: "",
+          message: "",
+        });
+        console.log(sender)
+       }
 
   }
   return (
@@ -85,10 +92,7 @@ const click=()=>{
               />
             </p>
 
-            <p>
-              <label>Phone Number</label>
-              <input type="text" name="phone" />
-            </p>
+            
             <p className="full">
               <label>Message</label>
               <textarea
