@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(require("./src/routes/productroutes"));
 app.use(require("./src/routes/sendmail"));
+app.use(require("./src/routes/userrouter"));
 app.use(express.json());
 app.listen(port, () => {
   console.log(`The server is running on ${port}`);

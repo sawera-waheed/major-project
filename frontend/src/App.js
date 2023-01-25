@@ -1,18 +1,23 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./view/Home";
-import NodeMailer from "./view/Nodemailer/index";
+
+import Login from "./view/Login/index";
+import NodeMailer from "./view/Nodemailer";
+import Signup from "./view/SignUp/index";
+
 function App() {
   return (
-    
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/nodemailer" element={<NodeMailer />}></Route>
-      </Routes>
-    </BrowserRouter>
-
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route excat path="/" element={<Login />}></Route>
+          <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/nodemailer" element={<NodeMailer/>}></Route>
+          <Route exact path="/signup" element={<Signup/>}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Auth /> */}
+    </>
   );
 }
 

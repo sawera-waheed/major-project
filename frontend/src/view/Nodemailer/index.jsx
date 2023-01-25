@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../../Components/Navbar";
 import "./style.css";
 const NodeMailer = () => {
   const [sender, setSender] = useState({
@@ -16,33 +17,38 @@ const NodeMailer = () => {
     });
   };
 
-  const postData=async(e)=>{
+  const postData = async (e) => {
     e.preventDefault();
-       const {name, email , subject , message}= sender;
-       const res = await fetch("/sendmail", {
-        method: "POST",
-        headers:{
-          "Content-type":"application/json"
-        },
-        body: JSON.stringify({
-          name, email , subject , message
-        })
-       });
-       const data= await res.json();
-      
-       if(res.status===200){
-        console.log("setting sender");
-        setSender({
-          name: "",
-          subject: "",
-          email: "",
-          message: "",
-        });
-        console.log(sender)
-       }
-
-  }
-  return (
+    const { name, email, subject, message } = sender;
+    const res = await fetch("/sendmail", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        subject,
+        message,
+      }),
+    });
+    const data = await res.json();
+console.log(data);
+    if (res.status === 200) {
+      console.log("setting sender");
+      setSender({
+        name: "",
+        subject: "",
+        email: "",
+        message: "",
+      });
+      window.alert("Email Sent Successfully");
+    } else {
+      window.alert("Please fill all the fields");
+    }
+  };
+  return (<>
+  <Navbar/>
     <div className="container">
       <h1 className="brand">Contact Form Design</h1>
       <div className="wrapper animated bounceInLeft">
@@ -63,7 +69,7 @@ const NodeMailer = () => {
         </div>
         <div className="contact">
           <h3>Email Us</h3>
-          <form >
+          <form>
             <p>
               <label>Name</label>
               <input
@@ -92,7 +98,6 @@ const NodeMailer = () => {
               />
             </p>
 
-            
             <p className="full">
               <label>Message</label>
               <textarea
@@ -103,8 +108,8 @@ const NodeMailer = () => {
               />
             </p>
             <p className="full">
-            <button  onClick={postData}>
-              {/* <button  onClick={(sender)=>postData(sender)}> */}
+              <button onClick={postData}>
+                {/* <button  onClick={(sender)=>postData(sender)}> */}
                 Submit
               </button>
             </p>
@@ -112,6 +117,7 @@ const NodeMailer = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

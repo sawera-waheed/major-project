@@ -17,16 +17,15 @@ router.post("/sendmail", async (req, res) => {
             pass: "jtkcxhwquoozpenr",
           },
         });
-        let info = await transporter.sendMail({
-          from: `"${name}"`, // sender address
-          to: `${email}`, // list of receivers
+        await transporter.sendMail({
+          from: email, // sender address
+          // from: `"${name}"`, // sender address
+          to: `safanoorfsc24@gmail.com`, // list of receivers
           subject: `${subject}`, // Subject line
           text: `${message}`, // plain text body
         });
-        
-          console.log("hello")
-          res.status(200).json({ message: "HELLO" });
-      
+
+        res.status(200).json({ message: "HELLO" });
       } catch (err) {
         console.log(err);
       }
