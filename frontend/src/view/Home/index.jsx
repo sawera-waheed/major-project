@@ -7,7 +7,7 @@ import Navbar from "../../Components/Navbar";
 import Product from "../../Components/Product/Product";
 
 const Home = () => {
-  return (<>
+  return (<> 
     <Navbar/>
     <Container>
       <Grid container spacing={2} style={{marginTop:"20px", marginBottom: "40px"}}>

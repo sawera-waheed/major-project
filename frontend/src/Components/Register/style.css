@@ -7,11 +7,11 @@
     padding: 1rem;
     align-items: center;
     text-align: center;
-    height: 700px;
+    height: 80%;
     float: right;
     margin-top: 80px;
     margin-right: 60px; 
-  
+    margin-bottom: 80px;
 
 }
 .adminlogin  h1{
@@ -94,7 +94,6 @@
     font-size: 1rem;
     height: 35px;
     margin: 25px 0 0 0;
-    width:50%;
 }
 ::placeholder{
     color: #B4B4B4;
@@ -110,13 +109,13 @@
     width: 74%;
     font-size: 1rem;
     height: 35px;
-    width:50%;
+    margin: 25px 0 0 0;
 }
 ::placeholder{
     color: #B4B4B4;
 }
 
-#passwordinput , #cpasswordinput{
+#passwordinput{
     border-radius: 8px;
     border: 1px solid rgb(202, 202, 202);
     outline: none;
@@ -126,7 +125,19 @@
     width: 74%;
     font-size: 1rem;
     height: 35px;
-    width:50%;
+    margin: 25px 0 0 0;
+}
+#cpasswordinput{
+    border-radius: 8px;
+    border: 1px solid rgb(202, 202, 202);
+    outline: none;
+    color: #1d2129;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    width: 74%;
+    font-size: 1rem;
+    height: 35px;
+    margin: 25px 0 10px 0;
 }
 .passwordfield{
     text-align: right;

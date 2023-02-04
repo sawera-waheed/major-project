@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 const Register = () => {
   const navigate = useNavigate();
-  const handleClick = () => {
-    //  navigate("/");
-  };
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -109,7 +106,7 @@ const Register = () => {
             Sign Up
           </div>
           <p className="signup-para">
-            Already Registered <span onClick={handleClick}>Sign in</span>
+            Already Registered <a href="/">Sign in</a>
           </p>
         </div>
       </Grid>

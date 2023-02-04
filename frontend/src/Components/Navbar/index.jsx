@@ -12,7 +12,7 @@ const Navbar = () => {
         </Grid>
         <Grid item sm={12} md={4} lg={4}></Grid>
         <Grid item sm={12} md={4} lg={4} style={{paddingTop:"36px"}}>
-          <LINK to="/" >Home</LINK>
+          <LINK to="/home" >Home</LINK>
           <LINK to="/nodemailer">Node Mailer</LINK>
         </Grid>
       </GRID>

@@ -9,9 +9,9 @@ const Product = () => {
   const [products, setProduct] = useState([]);
   const fetchData = async () => {
     const res = await fetch("http://localhost:5000/products");
-    console.log(res);
+    // console.log(res);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     setProduct(data);
   };
   useEffect(() => {
@@ -26,7 +26,7 @@ const Product = () => {
       }
     });
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     if(res.status===200){
       window.alert("Delete Item");
       fetchData();
