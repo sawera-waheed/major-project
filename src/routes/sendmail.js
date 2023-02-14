@@ -13,14 +13,14 @@ router.post("/sendmail", async (req, res) => {
           port: 587,
           secure: false, // true for 465, false for other ports
           auth: {
-            user: "sawerawaheed.dn@gmail.com",
-            pass: "jtkcxhwquoozpenr",
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD,
           },
         });
         await transporter.sendMail({
-          from: email, // sender address
+          from: process.env.EMAIL, // sender address
           // from: `"${name}"`, // sender address
-          to: `safanoorfsc24@gmail.com`, // list of receivers
+          to: `${email}`, // list of receivers
           subject: `${subject}`, // Subject line
           text: `${message}`, // plain text body
         });

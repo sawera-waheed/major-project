@@ -63,10 +63,10 @@ const Register = () => {
           <h3>Your Social Compaigns</h3>
           <div className="link-buttons">
             <div className="google-button">
-              <a href="#" className="fa fa-google"></a>Sign up with Google
+              <div className="fa fa-google"></div>Sign up with Google
             </div>
             <div className="facebook-button">
-              <a href="#" class="fa fa-facebook"></a>Sign up with Facebook
+              <div class="fa fa-facebook"></div>Sign up with Facebook
             </div>
           </div>
           <input

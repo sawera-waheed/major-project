@@ -44,12 +44,11 @@ const Signin = () => {
      
       localStorage.setItem("usersdatatoken",data.result.token);
       // localStorage.setItem("userLocalStorage", res.result.token)
-      
       navigate("/home");
     }
   };
   const forgotPassword= (response) => {
-    // console.log(response);
+  navigate("/forget")
   };
   return (
     <Grid container spacing={2}>
@@ -67,10 +66,10 @@ const Signin = () => {
                 onFailure={responseErrorGoogle}
                 cookiePolicy={"single_host_origin"}
               /> */}
-              <a href="#" className="fa fa-google"></a>Sign in with Google
+              <div className="fa fa-google"></div>Sign in with Google
             </div>
             <div className="facebook-button">
-              <a href="#" className="fa fa-facebook"></a>Sign in with Facebook
+              < div className="fa fa-facebook"></div>Sign in with Facebook
             </div>
           </div>
           <input

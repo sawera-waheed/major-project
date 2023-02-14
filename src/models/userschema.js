@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+  verifytoken:{
+    type: String,
+}
 });
 
 // hashing the password
@@ -33,6 +36,8 @@ userSchema.pre("save", async function (next) {
   }
   next();
 });
+
+//generating token 
 
 userSchema.methods.generateAuthtoken = async function () {
   try {
@@ -44,5 +49,6 @@ userSchema.methods.generateAuthtoken = async function () {
     console.log(err);
   }
 };
+
 const User = new mongoose.model("user", userSchema);
 module.exports = User;
